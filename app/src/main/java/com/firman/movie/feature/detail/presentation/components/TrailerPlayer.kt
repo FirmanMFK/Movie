@@ -205,20 +205,14 @@ private fun createYouTubeWebView(
                 Log.d("TrailerPlayer", "Exiting fullscreen")
                 val activity = context as? Activity ?: return
                 val decorView = activity.window.decorView as FrameLayout
-                
-                // Remove the full screen view
+
                 activeCustomView?.let { decorView.removeView(it) }
-                
-                // Notify the WebView that we successfully hid the custom view
                 activeCustomViewCallback?.onCustomViewHidden()
-                
-                // Update Compose state
                 onFullScreenChange(null, null, false)
                 
                 activeCustomView = null
                 activeCustomViewCallback = null
 
-                // Resume the WebView rendering to fix play/pause state
                 this@apply.onResume()
                 this@apply.requestFocus()
             }

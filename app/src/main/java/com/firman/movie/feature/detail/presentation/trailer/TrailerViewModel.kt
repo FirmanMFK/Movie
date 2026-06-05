@@ -2,14 +2,11 @@ package com.firman.movie.feature.detail.presentation.trailer
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.firman.movie.feature.browse.domain.model.Movie
 import com.firman.movie.feature.detail.domain.model.MovieDetail
 import com.firman.movie.feature.detail.domain.repository.MovieDetailRepository
-import com.firman.movie.feature.watchlist.domain.repository.WatchlistRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 sealed class TrailerState {
@@ -22,8 +19,7 @@ sealed class TrailerState {
 
 class TrailerViewModel(
     private val movieId: Int,
-    private val movieDetailRepository: MovieDetailRepository,
-    private val watchlistRepository: WatchlistRepository
+    private val movieDetailRepository: MovieDetailRepository
 ) : ViewModel() {
 
     private val _state = MutableStateFlow<TrailerState>(TrailerState.Loading)

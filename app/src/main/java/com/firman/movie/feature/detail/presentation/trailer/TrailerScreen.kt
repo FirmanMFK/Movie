@@ -10,9 +10,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.Share
@@ -52,6 +49,7 @@ fun TrailerScreen(
                     CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
                 }
             }
+
             is TrailerState.Error -> {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -63,6 +61,7 @@ fun TrailerScreen(
                     }
                 }
             }
+
             is TrailerState.Success -> {
                 val movie = currentState.movieDetail
 
@@ -71,7 +70,6 @@ fun TrailerScreen(
                         .fillMaxSize()
                         .padding(top = paddingValues.calculateTopPadding())
                 ) {
-                    // Top bar with back and share — separate row above the player
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -130,7 +128,6 @@ fun TrailerScreen(
                         }
                     }
 
-                    // Fixed info section below the player (no scrolling)
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()

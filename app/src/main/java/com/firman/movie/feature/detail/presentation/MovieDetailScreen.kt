@@ -391,4 +391,3 @@ fun MovieDetailScreen(
         }
     }
 }
-// The CastItem and ReviewItem have been moved to their respective files in the components package.
