@@ -1,8 +1,8 @@
-# Movie App 🎬
+# Movie App
 
 A modern Android application for discovering movies, watching trailers, and managing your watchlist. Built entirely with Kotlin and Jetpack Compose, this app demonstrates the use of Clean Architecture, modern Android development practices, and smooth UI/UX.
 
-## Features ✨
+## Features
 
 ### 1. Browse Genres
 Explore a comprehensive list of movie genres (Action, Comedy, Drama, etc.) acting as the main gateway to discovering content.
@@ -32,7 +32,7 @@ Toggle between beautifully crafted light and dark themes, fully supporting Mater
 
 ---
 
-## Tech Stack 🛠️
+## Tech Stack
 
 This project uses the latest Android technologies and architectural patterns:
 
@@ -53,7 +53,7 @@ This project uses the latest Android technologies and architectural patterns:
 
 ---
 
-## Getting Started 🚀
+## Getting Started
 
 ### Prerequisites
 - Android Studio Ladybug (or newer).
