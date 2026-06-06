@@ -29,4 +29,20 @@ class MovieRepositoryImpl(
             }
         ).flow
     }
+
+    override fun searchMovies(query: String): Flow<PagingData<Movie>> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = 10,
+                enablePlaceholders = false,
+                prefetchDistance = 3
+            ),
+            pagingSourceFactory = {
+                com.firman.movie.feature.browse.data.paging.SearchMoviePagingSource(
+                    apiService = apiService,
+                    query = query
+                )
+            }
+        ).flow
+    }
 }

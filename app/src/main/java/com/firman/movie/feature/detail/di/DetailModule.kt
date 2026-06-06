@@ -21,8 +21,7 @@ val detailModule = module {
     viewModel { params ->
         TrailerViewModel(
             movieId = params.get(),
-            movieDetailRepository = get(),
-            watchlistRepository = get()
+            movieDetailRepository = get()
         )
     }
 }

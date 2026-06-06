@@ -9,6 +9,7 @@ import com.firman.movie.feature.browse.domain.usecase.GetGenresUseCase
 import com.firman.movie.feature.browse.domain.usecase.GetMoviesByGenreUseCase
 import com.firman.movie.feature.browse.presentation.discover.DiscoverMoviesViewModel
 import com.firman.movie.feature.browse.presentation.genre.GenreListViewModel
+import com.firman.movie.feature.browse.presentation.search.SearchViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -36,4 +37,6 @@ val browseModule = module {
             toggleWatchlistUseCase = get()
         )
     }
+    
+    viewModel { SearchViewModel(get()) }
 }

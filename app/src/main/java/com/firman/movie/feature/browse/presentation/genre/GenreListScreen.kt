@@ -47,11 +47,13 @@ import com.firman.movie.core.ui.GenreCard
 import com.firman.movie.core.ui.ShimmerBox
 import com.firman.movie.feature.browse.domain.model.Genre
 import org.koin.androidx.compose.koinViewModel
+import androidx.compose.material.icons.rounded.Search
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GenreListScreen(
     onGenreClick: (Genre) -> Unit,
+    onSearchClick: () -> Unit,
     paddingValues: PaddingValues,
     isDarkTheme: Boolean,
     onThemeToggle: () -> Unit,
@@ -83,12 +85,21 @@ fun GenreListScreen(
                 fontSize = 28.sp
             )
 
-            IconButton(onClick = onThemeToggle) {
-                Icon(
-                    imageVector = if (isDarkTheme) Icons.Rounded.LightMode else Icons.Rounded.DarkMode,
-                    contentDescription = "Toggle Theme",
-                    tint = MaterialTheme.colorScheme.onBackground
-                )
+            Row {
+                IconButton(onClick = onSearchClick) {
+                    Icon(
+                        imageVector = Icons.Rounded.Search,
+                        contentDescription = "Search Movies",
+                        tint = MaterialTheme.colorScheme.onBackground
+                    )
+                }
+                IconButton(onClick = onThemeToggle) {
+                    Icon(
+                        imageVector = if (isDarkTheme) Icons.Rounded.LightMode else Icons.Rounded.DarkMode,
+                        contentDescription = "Toggle Theme",
+                        tint = MaterialTheme.colorScheme.onBackground
+                    )
+                }
             }
         }
 

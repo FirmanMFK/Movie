@@ -22,6 +22,14 @@ interface MovieApiService {
         @Query("include_adult") includeAdult: Boolean = false
     ): MovieListResponse
 
+    @GET("search/movie")
+    suspend fun searchMovies(
+        @Query("query") query: String,
+        @Query("page") page: Int = 1,
+        @Query("language") language: String = "en-US",
+        @Query("include_adult") includeAdult: Boolean = false
+    ): MovieListResponse
+
     @GET("movie/{movie_id}")
     suspend fun getMovieDetails(
         @Path("movie_id") movieId: Int,

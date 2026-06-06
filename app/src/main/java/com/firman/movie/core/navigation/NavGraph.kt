@@ -9,6 +9,8 @@ import androidx.navigation.toRoute
 import com.firman.movie.feature.browse.presentation.discover.DiscoverMoviesScreen
 import com.firman.movie.feature.browse.presentation.discover.DiscoverMoviesViewModel
 import com.firman.movie.feature.browse.presentation.genre.GenreListScreen
+import com.firman.movie.feature.browse.presentation.search.SearchScreen
+import com.firman.movie.feature.browse.presentation.search.SearchViewModel
 import com.firman.movie.feature.detail.presentation.MovieDetailScreen
 import com.firman.movie.feature.detail.presentation.MovieDetailViewModel
 import com.firman.movie.feature.detail.presentation.trailer.TrailerScreen
@@ -37,6 +39,9 @@ fun NavGraph(
                             genreName = genre.name
                         )
                     )
+                },
+                onSearchClick = {
+                    navController.navigate(Screen.Search)
                 },
                 paddingValues = paddingValues,
                 isDarkTheme = isDarkTheme,
@@ -91,6 +96,18 @@ fun NavGraph(
             TrailerScreen(
                 viewModel = viewModel,
                 onBackClick = { navController.popBackStack() }
+            )
+        }
+
+        composable<Screen.Search> {
+            val viewModel: SearchViewModel = koinViewModel()
+            SearchScreen(
+                paddingValues = paddingValues,
+                onBackClick = { navController.popBackStack() },
+                onMovieClick = { movieId ->
+                    navController.navigate(Screen.MovieDetail(movieId = movieId))
+                },
+                viewModel = viewModel
             )
         }
     }

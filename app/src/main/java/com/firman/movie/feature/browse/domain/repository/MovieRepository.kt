@@ -6,4 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface MovieRepository {
     fun getMoviesByGenre(genreId: Int, sortBy: String): Flow<PagingData<Movie>>
+    fun searchMovies(query: String): Flow<PagingData<Movie>>
 }

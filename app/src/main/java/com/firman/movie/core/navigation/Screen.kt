@@ -20,4 +20,7 @@ sealed interface Screen {
 
     @Serializable
     data class Trailer(val movieId: Int) : Screen
+    
+    @Serializable
+    data object Search : Screen
 }
